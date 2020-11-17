@@ -5,9 +5,9 @@ from data_generator import setInfo, classMapping, train_data_generator, val_data
 
 tbd = TensorBoard(log_dir=r'C:\logs\lizukaColor-places365-DeepCNN-1')
 mckpt = ModelCheckpoint(
-                filepath="lizukaColor-places365-DeepCNN-1-weights.best.hdf5",
+                filepath="./ckpt/lizukaColor-places365-DeepCNN-1-weights.best.hdf5",
                 save_best_only=True,  # Only save a model if `val_loss` has improved.
-                monitor="val_loss",
+                monitor="loss",
                 verbose=1,
             )
 callbacks = [tbd, mckpt]
