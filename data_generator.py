@@ -82,7 +82,7 @@ def train_data_generator(trainingRootDir, trainingSetInfo, traningSampleNum, bat
             bs += 1
             if bs==batchSize: # end of current batch
                 bs=0
-                yield [np.array(L_train)[:,:,:,np.newaxis], [np.array(ab_train), np.array(class_train)]]
+                yield [np.array(L_train)[:,:,:,np.newaxis], np.array(ab_train)] # , np.array(class_train)]]
 
 def val_data_generator(validRootDir ):
     L_valid, ab_valid, class_valid = list(), list(), list()
