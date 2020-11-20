@@ -95,6 +95,7 @@ def build_model():
     # output = Conv2D(2, (3, 3), name='deco_4_2', activation='tanh', padding='same', strides=(1, 1))(deco)
 
     model = Model(inputs = input, outputs = deco, name=MName)
+    model.load_weights("./ckpt/lizukaColor-places365-DeepCNN-3-weights.best.hdf5")
     model.compile(optimizer='adadelta', loss='mse', metrics=['accuracy'])
 
     print(model.metrics_names)

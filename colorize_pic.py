@@ -33,21 +33,21 @@ def prepSingleImg(imPath):
 
 # prepTestData()
 
-
+singleImPath = './val_256/Places365_val_00000164.jpg'
 
 
 model = tf.keras.models.load_model('./model/lizukaColor-places365-DeepCNN-3')#, custom_objects={'euclidean_distance_loss': euclidean_distance_loss,'loss_class':loss_class})
 
-output_ab = model.predict(prepSingleImg('./testCat13.jpg'))
+output_ab = model.predict(prepSingleImg(singleImPath))
 
 def processPrediction(input, pred):
     if len(input) == len(pred):
         for i in range(len(pred)):
             image = lab2bgr(input[i], pred[i])
-            imsave('./result/image_'+str(i)+'.jpg', image)
+            cv2.imshow('BGR',image)
+            cv2.waitKey(0)
+            cv2.destroyAllWindows()
+            # imsave('./result/image_'+str(i)+'.jpg', image)
 
-processPrediction(prepSingleImg('./testCat13.jpg'), output_ab)
+processPrediction(prepSingleImg(singleImPath), output_ab)
 
-# cv2.imshow('BGR',imBGR)
-# cv2.waitKey(0)
-# cv2.destroyAllWindows()

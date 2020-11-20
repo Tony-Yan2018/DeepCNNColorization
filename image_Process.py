@@ -29,8 +29,8 @@ def lab2bgr(L, ab):
     :return:
     '''
     pic = np.zeros((IMSIZE, IMSIZE, 3))
-    pic[:, :, 0] = L[0][:, :, 0] * 100.0
-    pic[:, :, 1:] = ab[0]*128.0
+    pic[:, :, 0] = L[0][:, :, 0]*100.0
+    pic[:, :, 1:] = ab*128.0
     pic = pic.astype(np.float32)
     imBGR = cv2.cvtColor(pic, cv2.COLOR_LAB2BGR)
     imBGR = cv2.resize(imBGR, (IMSIZE, IMSIZE))
