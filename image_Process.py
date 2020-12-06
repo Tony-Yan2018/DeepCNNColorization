@@ -33,7 +33,7 @@ def lab2bgr(L, ab):
     pic[:, :, 1:] = ab*128.0
     pic = pic.astype(np.float32)
     imBGR = cv2.cvtColor(pic, cv2.COLOR_LAB2BGR)
-    imBGR = cv2.resize(imBGR, (IMSIZE, IMSIZE))
+    # imBGR = cv2.resize(imBGR, (IMSIZE, IMSIZE))
     return imBGR
 
 
