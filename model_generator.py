@@ -55,8 +55,6 @@ def build_model():
     enco_glob = Conv2D(512, (3, 3), name='enco_glob_4', activation='relu', padding='same', strides=(2, 2))(enco_glob)
     enco_glob = BatchNormalization()(enco_glob)
 
-    # enco_glob = Conv2D(256, (3, 3), name='enco_glob_8', activation='relu', padding='same', strides=(2, 2))(enco_glob)
-
     enco_glob = Flatten()(enco_glob)
     enco_glob = Dense(768, name='enco_glob_5', activation='relu')(enco_glob)
     enco_glob = Dense(512, name='enco_glob_6', activation='relu')(enco_glob)
@@ -84,15 +82,6 @@ def build_model():
     deco = Conv2D(32, (3, 3), name='deco_2_1', activation='relu', padding='same', strides=(1, 1))(deco)
     deco = Conv2D(2, (3, 3), name='deco_2_2', activation='tanh', padding='same', strides=(1, 1))(deco)
     deco = UpSampling2D(size=(2, 2))(deco)
-    # deco = BatchNormalization()(deco)
-
-    # deco = UpSampling2D(size=(2, 2))(deco)
-    # deco = Conv2D(16, (3, 3), name='deco_3_1', activation='relu', padding='same', strides=(1, 1))(deco)
-    # deco = Conv2D(16, (3, 3), name='deco_3_2', activation='relu', padding='same', strides=(1, 1))(deco)
-    # # deco = BatchNormalization()(deco)
-    #
-    # deco = UpSampling2D(size=(2, 2))(deco)
-    # output = Conv2D(2, (3, 3), name='deco_4_2', activation='tanh', padding='same', strides=(1, 1))(deco)
 
     model = Model(inputs = input, outputs = deco, name=MName)
     model.load_weights("./ckpt/lizukaColor-places365-DeepCNN-3-weights.best.hdf5")

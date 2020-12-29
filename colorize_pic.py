@@ -51,27 +51,13 @@ def prepSingleImg(imPath):
     im = np.array(im).reshape(1, IMSIZE, IMSIZE, 1)
     return [im]
 
-# prepTestData()
+
 
 singleImPath = './val_256/Places365_val_00000174.jpg'
-# im = cv2.imread(singleImPath, cv2.IMREAD_COLOR)
-# # im = cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
-# im = cv2.resize(im, (320, 320), cv2.INTER_CUBIC)
-# # im = np.array(im)
-# # rdn = RDN(weights='psnr-large')
-# sr_im = rrdn.predict(im)
-#
-# cv2.imshow('RGB', sr_im)
-# cv2.waitKey(0)
-# cv2.destroyAllWindows()
-
 
 # model = tf.keras.models.load_model('./model/lizukaColor-places365-DeepCNN-3')#, custom_objects={'euclidean_distance_loss': euclidean_distance_loss,'loss_class':loss_class})
 
 # output_ab = model.predict(prepSingleImg(singleImPath))
-
-# def batchPred():
-
 
 def processPrediction(input, pred):
     if len(input) == len(pred):
@@ -80,13 +66,6 @@ def processPrediction(input, pred):
             image *= 255
             image = image.astype(np.uint8)
             image = cv2.resize(image, (1280, 720), cv2.INTER_CUBIC)
-
-            # image = rdn.predict(image)
             cv2.imwrite('./video/color/'+str(time.time())+'.jpg',image)
 
-            # cv2.imshow('BGR',image)
-            # cv2.waitKey(0)
-            # cv2.destroyAllWindows()
-
-# processPrediction(prepSingleImg(singleImPath), output_ab)
 

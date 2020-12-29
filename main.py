@@ -3,7 +3,7 @@ from cfg import IMSIZE, epoch_num, NAME, trainingRootDir, validRootDir, training
 import model_generator as mdlGe
 from data_generator import setInfo, classMapping, train_data_generator, val_data_generator
 
-tbd = TensorBoard(log_dir=r'C:\logs\lizukaColor-places365-DeepCNN-3-continue2')
+tbd = TensorBoard(log_dir=r'C:\logs\lizukaColor-places365-DeepCNN-3-continue3')
 mckpt = ModelCheckpoint(
                 filepath="./ckpt/lizukaColor-places365-DeepCNN-3-weights.best.hdf5",
                 save_best_only=True,  # Only save a model if `loss` has improved.
